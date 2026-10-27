@@ -1,0 +1,14 @@
+{
+  "name": "Good",
+  "active": true,
+  "settings": { "executionOrder": "v1" },
+  "nodes": [
+    { "name": "Webhook", "type": "n8n-nodes-base.webhook", "position": [0, 0], "parameters": { "path": "in" } },
+    { "name": "Set", "type": "n8n-nodes-base.set", "position": [240, 0], "parameters": { "value": "={{ $json.x }}" } },
+    { "name": "HTTP", "type": "n8n-nodes-base.httpRequest", "position": [480, 0], "parameters": { "url": "https://example.com" }, "credentials": { "httpHeaderAuth": { "id": "1", "name": "hdr" } } }
+  ],
+  "connections": {
+    "Webhook": { "main": [[{ "node": "Set", "type": "main", "index": 0 }]] },
+    "Set": { "main": [[{ "node": "HTTP", "type": "main", "index": 0 }]] }
+  }
+}

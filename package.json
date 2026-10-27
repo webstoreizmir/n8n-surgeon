@@ -1,0 +1,19 @@
+{
+  "name": "n8n-surgeon",
+  "version": "0.1.0",
+  "description": "Safe, surgical patching of live n8n workflows: pull, diff, lint, and push with backups, byte-identical baseline checks and post-push verification.",
+  "type": "module",
+  "bin": { "n8n-surgeon": "./bin/n8n-surgeon.mjs" },
+  "main": "./src/index.mjs",
+  "exports": "./src/index.mjs",
+  "files": ["bin", "src", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test",
+    "lint:self": "node bin/n8n-surgeon.mjs lint test/fixtures/bad.json || true"
+  },
+  "engines": { "node": ">=20" },
+  "keywords": ["n8n", "workflow", "cli", "diff", "lint", "devops", "automation"],
+  "author": "Can Çuhacı",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/webstoreizmir/n8n-surgeon.git" }
+}

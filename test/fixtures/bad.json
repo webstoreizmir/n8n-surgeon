@@ -1,0 +1,15 @@
+{
+  "name": "Bad",
+  "active": true,
+  "settings": { "executionOrder": "v1", "binaryMode": "default", "timeSavedMode": "auto" },
+  "nodes": [
+    { "name": "Webhook", "type": "n8n-nodes-base.webhook", "position": [0, 0], "parameters": { "path": "in" } },
+    { "name": "HTTP", "type": "n8n-nodes-base.httpRequest", "position": [240, 0], "parameters": { "url": "={{ $env.API_URL }}/x", "headers": { "tenant": "{tenant_id}" } }, "credentials": { "httpHeaderAuth": { "id": "", "name": "" } } },
+    { "name": "HTTP", "type": "n8n-nodes-base.httpRequest", "position": [250, 10], "parameters": {} },
+    { "name": "Lonely", "type": "n8n-nodes-base.set", "position": [900, 0], "parameters": {} }
+  ],
+  "connections": {
+    "Webhook": { "main": [[{ "node": "HTTP", "type": "main", "index": 0 }, { "node": "Ghost", "type": "main", "index": 0 }]] },
+    "Phantom": { "main": [[]] }
+  }
+}
